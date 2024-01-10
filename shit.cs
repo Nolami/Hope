@@ -15,18 +15,17 @@ namespace Beep // Note: actual namespace depends on the project name.
                 Console.Write("- ");
             }
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Arvaa arvottu luku väliltä 1-12 (lopetus L-merkillä)");
             Random ran = new Random();
-            int rannum = ran.Next(1,13);
+            int rannum = ran.Next(1, 13);
             int se = 0;
             int val = 0;
-            while (val == rannum)
+
+            while (val != rannum)
             {
                 Console.Write("{0}. yritys: Arvaa luku ? ", se + 1);
-                string ka = (Console.ReadLine());
-                int vor = int.Parse(ka);
-                Console.WriteLine(ka);
-                se++;
+                string ka = Console.ReadLine();
                 if (ka == "L")
                 {
                     Console.WriteLine("Lopetetaan...");
@@ -35,14 +34,18 @@ namespace Beep // Note: actual namespace depends on the project name.
                     Console.WriteLine();
                     Console.WriteLine("Oikea vastaus oli {0}", rannum);
                 }
-                if (vor == rannum)
+                val = int.Parse(ka);
+                Console.WriteLine(ka);
+                se++;
+                
+                if (val == rannum)
                 {
                     Console.WriteLine();
                     Console.WriteLine("Onneksi olkoon, aravasit oikein !!!");
                     Console.WriteLine("Oikea vastaus oli {0}", rannum);
                 }
             }
-            
+
         }
 
     }

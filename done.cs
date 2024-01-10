@@ -20,7 +20,7 @@ namespace Beep // Note: actual namespace depends on the project name.
             int vi = 0;
             int[] thi = new int[100];
             int sum = 0;
-            while (sum <= 100)
+            while (sum < 100)
             {
                 Console.Write("Anna {0}. luku ? ", vi + 1);
                 int al = int.Parse(Console.ReadLine());
