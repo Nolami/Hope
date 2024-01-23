@@ -8,6 +8,7 @@ namespace Youch
     {
         static void Main(string[] args)
         {
+            
             string vi = "Objective 13.2 // Egert Sulger"; // Random variable, never used again
             Console.WriteLine(vi);
             for (int i = 0; i < vi.Length; i++)
@@ -19,7 +20,7 @@ namespace Youch
             Console.Write("What area do you want to calculate?\nYour options are: Circle (1), Square (2) , Rectangle (3) and Pyramid (4).\nYou can input the letter L at any given time to exit."); //
             Console.WriteLine();
             Console.WriteLine();
-            List<int> repy = new List<int>(); //rectangle and pyramid specifically
+            List<double> repy = new List<double>(); //rectangle and pyramid specifically
             while (true)
             {
                 Console.Write("What shape's area would you like to find? ");
@@ -32,6 +33,7 @@ namespace Youch
                 }
                 int val = int.Parse(che);
                 int num = 0;
+                double nums = 0;
 
                 if (val == 1)
                 {
@@ -55,24 +57,28 @@ namespace Youch
                     for (int i = 0; i < 2; i++)
                     {
                         Console.Write("Input your values: ");
-                        int side = int.Parse(Console.ReadLine());
+                        double side = double.Parse(Console.ReadLine());
                         repy.Add(side);
                     }
-                    num = rec(repy);
-                    Console.WriteLine("The area of your rectangle is " + num);
-                    repy.Clear();
+                    nums = rec(repy);
+                    Console.WriteLine("The area of your rectangle is " + nums);
+                    repy.Clear(); //Clears the list, only way
                 }
                 if (val == 4)
                 {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Console.Write("Input your values: ");
-                        double edge = int.Parse(Console.ReadLine()); //it's sides of the triangle, but I couldn't generate a better name
-                        int iedge = (int)edge;
-                        repy.Add(iedge);
-                    }
-                    num = rec(repy);
-                    Console.WriteLine("The area of your triangle is " + num);
+                    
+                    
+                    Console.Write("Input your base: ");
+                    double bas = double.Parse(Console.ReadLine()); //Base, but I can't put base because apparently that's a function and is forbidden
+                    
+                    Console.Write("Input your height: ");
+                    double hei = double.Parse(Console.ReadLine()); //height
+                    repy.Add(bas);
+                    repy.Add(hei);
+
+                    
+                    nums = pyr(repy);
+                    Console.WriteLine("The area of your triangle is " + nums);
                     repy.Clear();
                 }
                 
@@ -88,17 +94,20 @@ namespace Youch
             double res = Math.PI * a * a; //have to use Math.PI, because 3.14 is not accurate enough
             return res;
         }
-        public static int rec(List<int> x) //rectangle calculation. This was kinda a pain
+        public static double rec(List<double> x) //rectangle calculation. This was kinda a pain
         {
-            int fin = x[0] * x[1]; //finish, as in finish the equation
+            double fin = x[0] * x[1]; //finish, as in finish the equation
             return fin;
         }
-        public static double pyr(List<double> x) //triangle calculation, hopefully this won't be pain
+         
+        public static double pyr(List<double> x) //triangle calculation, hopefully this won't be pain; Update: It's pain
         {
-            double a = (x[0] + x[1] + x[2]) / 2;
-            double res = Math.Sqrt(a * (a - x[0]) * (a - x[1] * (a - x[2])));
-            return res;
+            
+            double ans = x[0] * x[1];
+            ans = ans / 2;
+            return ans;
         }
+
     }
 }
 
