@@ -16,3 +16,28 @@ function updateTextColor() {
 
 window.addEventListener('scroll', updateTextColor)
 updateTextColor();
+
+<script>
+var Text = document.getElementById('Text');
+
+function updateTextColor() {
+    var TePos = text.Element.getBoundingClientRect(),left;
+
+    var brown = '#491810';
+    var pink = '#c02e4c'
+    var white = '#ffffff'
+
+    var TeCo;
+    if (TePos < window.innerWidth / 3) {
+        TeCo = brown;
+    } else if (TePos < (window.innderWidth * 2) / 3) {
+        TeCo = pink;
+    } else {
+        TeCo = white;
+    }
+    textElement.style.color = TeCo;
+}
+
+window.addEventListener('scroll', updateTextColor);
+window.addEventListener('resize', updateTextColor);
+updateTextColor();
