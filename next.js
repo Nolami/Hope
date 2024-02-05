@@ -38,6 +38,9 @@ function updateTextColor() {
     textElement.style.color = TeCo;
 }
 
-window.addEventListener('scroll', updateTextColor);
-window.addEventListener('resize', updateTextColor);
-updateTextColor();
+
+
+//</script>//window.addEventListener('scroll', updateTextColor); 
+//window.addEventListener('resize', updateTextColor); 
+//updateTextColor();
+
